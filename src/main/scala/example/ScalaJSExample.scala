@@ -1,14 +1,16 @@
 package example
 
-import scala.scalajs.js
-import js.annotation.JSExport
 import org.scalajs.dom
+
+import scala.scalajs.js
 
 object ScalaJSExample extends js.JSApp {
   def main(): Unit = {
     val paragraph = dom.document.createElement("p")
-    paragraph.innerHTML = "<strong>It works!</strong>"
+    paragraph.innerHTML = "<strong>It works!  For real!</strong>"
     dom.document.getElementById("playground").appendChild(paragraph)
+
+
   }
 
   /** Computes the square of an integer.
