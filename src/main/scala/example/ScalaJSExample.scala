@@ -24,7 +24,7 @@ object ScalaJSExample extends js.JSApp {
     val geometry = new BoxGeometry(1, 1, 1)
 
     val material: MeshBasicMaterial = new MeshBasicMaterial()
-//    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    material.color = new Color(0x00ff00)
 
     val cube = new Mesh(geometry, material)
 
@@ -32,22 +32,17 @@ object ScalaJSExample extends js.JSApp {
 
     camera.position.z = 5
 
-    cube.rotateX(0.1)
-    cube.rotateY(0.1)
+    var thing: js.Function1[Double, Unit] = null
+    thing = new js.Function1[Double, Unit] {
+      def apply(something: Double): Unit = {
+        dom.requestAnimationFrame(thing)
+        cube.rotation.x = cube.rotation.x + 0.1
+        cube.rotation.y = cube.rotation.y + 0.1
+        renderer.render(scene, camera)
+      }
+    }
 
-    renderer.render(scene , camera)
-//
-//    var render = function () {
-//      requestAnimationFrame( render );
-//
-//      cube.rotation.x += 0.1;
-//      cube.rotation.y += 0.1;
-//
-//      renderer.render(scene, camera);
-//    };
-//
-//    render();
-
+    thing(1.0)
   }
 
   /** Computes the square of an integer.
