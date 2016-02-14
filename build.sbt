@@ -26,6 +26,10 @@ resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resol
 jsDependencies += "org.webjars" % "three.js" % "r74" / "three.js"
 libraryDependencies += "org.denigma" %%% "threejs-facade" % "0.0.71-0.1.5" //add dependency
 
+resolvers += "amateras-repo" at "http://amateras.sourceforge.jp/mvn/"
+
+libraryDependencies += "com.scalawarrior" %%% "scalajs-createjs" % "0.0.2"
+
 bootSnippet := "example.ScalaJSExample().main(document.getElementById('canvas'));"
 
 updateBrowsers <<= updateBrowsers.triggeredBy(fastOptJS in Compile)

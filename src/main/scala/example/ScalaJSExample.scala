@@ -44,7 +44,6 @@ object ScalaJSExample extends js.JSApp {
 
     thing(1.0)
   }
-
   /** Computes the square of an integer.
    *  This demonstrates unit testing.
    */
