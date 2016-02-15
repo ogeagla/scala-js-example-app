@@ -9,6 +9,8 @@ version := "0.1-SNAPSHOT"
 
 scalaVersion := "2.11.7"
 
+scalacOptions ++= Seq("-deprecation", "-feature", "-encoding", "utf-8")
+
 persistLauncher in Compile := true
 
 persistLauncher in Test := false
